@@ -1,0 +1,23 @@
+pipeline{
+    agent any
+    tools {
+  maven 'maven'
+}
+stages {
+  stage('git checkout stage ') {
+    steps {
+        git 'https://github.com/Gabs-tech/Jenkins-Full-Course-on-aws-Linux.git'
+      // One or more steps need to be included within the steps block.
+    }
+  }
+
+  stage('maven clean and build') {
+    steps {
+        sh 'mvn -f Maven/pom.xml clean install'
+      // One or more steps need to be included within the steps block.
+    }
+  }
+
+}
+
+}
